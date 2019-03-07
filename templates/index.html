@@ -18,5 +18,16 @@
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
     <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // See: https://socket.io/docs/client-api/#With-custom-path
+      const socket = io("/chat", { path: "/sio/socket.io" });
+
+      socket.on("connect", () => {
+        console.log("A user is connected!");
+      });
+      socket.on("disconnect", () => {
+        console.log("User has disconnected.");
+      });
+    </script>
   </body>
 </html>
