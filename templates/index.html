@@ -20,7 +20,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       // See: https://socket.io/docs/client-api/#With-custom-path
-      const socket = io("/chat", { path: "/sio/socket.io" });
+      const socket = io({ path: "/sio/socket.io" });
 
       socket.on("connect", () => {
         console.log("A user is connected!");

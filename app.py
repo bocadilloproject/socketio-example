@@ -14,19 +14,10 @@ async def index(req, res):
     res.html = await templates.render("index.html")
 
 
-class EchoChatNamespace(socketio.AsyncNamespace):
-    def on_connect(self, sid, environ):
-        pass
-
-    def on_disconnect(self, sid):
-        pass
-
-    async def on_message(self, sid, data):
-        print("message:", data)
-        await self.emit("response", data)
-
-
-sio.register_namespace(EchoChatNamespace("/chat"))
+@sio.on("message")
+async def handle_message(sid, data: str):
+    print("message:", data)
+    await sio.emit("response", data)
 
 
 if __name__ == "__main__":
