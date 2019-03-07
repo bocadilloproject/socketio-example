@@ -1,0 +1,13 @@
+{
+  "name": "socketio-example",
+  "version": "1.0.0",
+  "description": "Example integration a SocketIO server with Bocadillo using python-socketio.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Florimond Manca",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}

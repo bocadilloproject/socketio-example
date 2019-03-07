@@ -117,3 +117,6 @@ dmypy.json
 
 ### Python Patch ###
 .venv/
+
+# JS
+node_modules/
