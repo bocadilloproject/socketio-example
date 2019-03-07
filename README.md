@@ -9,8 +9,20 @@ This is a reproduction of the the [socket.io chat tutorial](https://socket.io/ge
 
 ## Install
 
+Requires Python 3.6+.
+
+- Python dependencies:
+
 ```bash
 pip install bocadillo python-socketio
+# OR
+pipenv install
+```
+
+- Node.js dependencies:
+
+```bash
+npm install
 ```
 
 ## Quick start
