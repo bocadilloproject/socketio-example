@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Chat (Bocadillo + SocketIO)</title>
+    <title>Chat | Bocadillo + socket.io</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -19,7 +19,17 @@
     </form>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      // See: https://socket.io/docs/client-api/#With-custom-path
+      /*
+        Remake of the socket.io chat tutorial.
+        See: https://socket.io/get-started/chat
+      */
+
+      /*
+      NOTE: socket.io would connect to "localhost/" by default.
+      We need to specify the path under which the socket.io server has been
+      made available by the Bocadillo application.
+      See: https://socket.io/docs/client-api/#With-custom-path
+      */
       const socket = io({ path: "/sio/socket.io" });
 
       socket.on("connect", () => {
