@@ -14,10 +14,30 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+    <form id="form" action="">
+      <input id="message" autocomplete="off" /><button>Send</button>
     </form>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/static/chat.js"></script>
+    <script>
+      // See: https://socket.io/docs/client-api/#With-custom-path
+      const socket = io("/chat", { path: "/sio/socket.io" });
+
+      socket.on("connect", () => {
+        console.log("A user is connected!");
+      });
+      socket.on("disconnect", () => {
+        console.log("User has disconnected.");
+      });
+
+      const formEl = document.getElementById("form");
+      const messageEl = document.getElementById("message");
+
+      formEl.onsubmit = event => {
+        event.preventDefault();
+        socket.emit("message", messageEl.value);
+        messageEl.value = "";
+        return false;
+      };
+    </script>
   </body>
 </html>

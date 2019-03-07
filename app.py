@@ -22,11 +22,11 @@ class EchoChatNamespace(socketio.AsyncNamespace):
         sio.leave_room(sid, "users")
 
     async def on_message(self, sid, data):
-        await self.emit("response", data, room="users")
+        print(data)
 
 
 sio.register_namespace(EchoChatNamespace("/chat"))
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
