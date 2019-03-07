@@ -5,7 +5,7 @@ socket.io client/server example with [Bocadillo], [python-socketio] and [socket.
 This is a reproduction of the the [socket.io chat tutorial](https://socket.io/get-started/chat), but using:
 
 - python-socketio instead of [socket.io][socketio-server] as a server-side socket.io backend.
-- Bocadillo instead of Express as a web server.
+- Bocadillo instead of Express as a web application server.
 
 ## Install
 
