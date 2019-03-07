@@ -31,6 +31,7 @@
 
       const formEl = document.getElementById("form");
       const messageEl = document.getElementById("message");
+      const messageList = document.getElementById("messages");
 
       formEl.onsubmit = event => {
         event.preventDefault();
@@ -38,6 +39,13 @@
         messageEl.value = "";
         return false;
       };
+
+      socket.on("response", message => {
+        console.log("response:", message);
+        const li = document.createElement("li");
+        li.innerText = message;
+        messageList.appendChild(li);
+      });
     </script>
   </body>
 </html>

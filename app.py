@@ -16,17 +16,18 @@ async def index(req, res):
 
 class EchoChatNamespace(socketio.AsyncNamespace):
     def on_connect(self, sid, environ):
-        sio.enter_room(sid, "users")
+        pass
 
     def on_disconnect(self, sid):
-        sio.leave_room(sid, "users")
+        pass
 
     async def on_message(self, sid, data):
-        print(data)
+        print("message:", data)
+        await self.emit("response", data)
 
 
 sio.register_namespace(EchoChatNamespace("/chat"))
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
