@@ -1,7 +1,8 @@
 import socketio
-from bocadillo import App, Templates, static
+from bocadillo import App, configure, Templates, static
 
 app = App()
+configure(app)
 templates = Templates(app)
 
 # Create a socket.io async server.
@@ -39,7 +40,3 @@ async def handle_message(sid, data: str):
     # Broadcast the received message to all connected clients.
     # See: https://python-socketio.readthedocs.io/en/latest/server.html#emitting-events
     await sio.emit("response", data)
-
-
-if __name__ == "__main__":
-    app.run()

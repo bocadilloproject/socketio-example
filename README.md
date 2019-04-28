@@ -16,7 +16,7 @@ Requires Python 3.6+.
 ```bash
 pip install bocadillo python-socketio
 # OR
-pipenv install
+pipenv install --pre
 ```
 
 - Node.js dependencies:
@@ -30,7 +30,7 @@ npm install
 1. Fire off the server:
 
 ```bash
-python app.py
+uvicorn app:app
 ```
 
 2. Open up a web browser at http://localhost:8000, and start chatting!
